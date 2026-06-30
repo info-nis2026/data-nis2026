@@ -1,1 +1,241 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คูหาออกเสียงประชามติ</title>
+    <link rel="icon" href="https://cdn.countryflags.com/thumbs/thailand/flag-400.png">
+    <link rel="stylesheet" href="https://slw-system.pages.dev/assets/css/font-face.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loader">
+
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+
+        <p>กำลังโหลดข้อมูล...</p>
+
+    </div>
+
+    <div id="election-info" style="display:none;">
+
+        <h2>🗳️ ยังไม่ถึงวันออกเสียงประชามติ</h2>
+
+        <p>
+            วันออกเสียงประชามติ
+        </p>
+
+        <h1 id="vote-date"></h1>
+
+        <p>
+            เวลา
+            <span id="vote-open"></span>
+            -
+            <span id="vote-close"></span>
+            น.
+        </p>
+
+    </div>
+    <header>
+        <h3>คูหาออกเสียงประชามติ</h3>
+        <div>
+            <p id="time">--:--:--</p>
+        </div>
+    </header>
+
+    <div class="mt-5"></div>
+
+    <form id="form" class="flex">
+
+        <!-- บัตรลงประชามติ -->
+        <div class="col-6 c-8">
+
+            <header>
+                <div>
+                    <h2>บัตรออกเสียงประชามติ</h2>
+
+                    <div class="s">
+                        <b>ประเด็น</b>
+                        "ท่านเห็นชอบหรือไม่ ให้มีมาตรการชั่วคราวเพื่อจัดให้มีกลไกของรัฐในการจัดตั้งองค์กรตามรัฐธรรมนูญที่จำเป็น 
+                        และดำเนินการจัดให้มีการเลือกตั้งทั่วไป ในกรณีที่องค์กรตามรัฐธรรมนูญไม่สามารถปฏิบัติหน้าที่ได้"
+                    </div>
+
+                    <br>
+
+                    <center>
+                        <p style="font-size:20px">
+                            <b>
+                                โปรดทำเครื่องหมายกากบาท X
+                                <br>
+                                ในช่องทำเครื่องหมายเพียงช่องเดียว
+                            </b>
+                        </p>
+                    </center>
+                </div>
+            </header>
+
+            <div class="body-card">
+
+                <div class="card">
+
+                    <table>
+
+                        <tbody>
+
+                            <tr>
+                                <td class="big">เห็นชอบ</td>
+                                <td class="big">ไม่เห็นชอบ</td>
+                            </tr>
+
+                            <tr>
+
+                                <td class="boxs">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            id="agree"
+                                            class="value"
+                                            readonly>
+                                    </div>
+                                </td>
+
+                                <td class="boxs">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            id="disagree"
+                                            class="value"
+                                            readonly>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <footer>
+
+                <div class="p">
+
+                    <p>
+                        <b>
+                            ถ้าไม่ประสงค์จะแสดงความคิดเห็น
+                            ให้ทำเครื่องหมายกากบาท X
+                            ในช่องนี้
+                        </b>
+                    </p>
+
+                    <img
+                        src="https://koknongna.pages.dev/election/assets/img/no.png">
+
+                </div>
+
+                <div class="box">
+
+                    <p>
+                        <small>ช่องไม่แสดงความคิดเห็น</small>
+                    </p>
+
+                    <input
+                        type="text"
+                        id="novote"
+                        class="value"
+                        readonly>
+
+                </div>
+
+            </footer>
+
+        </div>
+
+        <!-- ข้อมูลผู้ลงคะแนน -->
+        <div class="col-6">
+
+            <header>
+
+                <div>
+
+                    <h2>ข้อมูลผู้เลือกตั้ง</h2>
+
+                    <p>ด้านในของบัตรออกเสียงประชามติ</p>
+
+                </div>
+
+            </header>
+
+            <main>
+
+                <div style="display:grid;width:100%;">
+
+                    <label for="name">
+                        ชื่อผู้มีสิทธิ์ลงประชามติ
+                    </label>
+
+                    <select
+                        id="name"
+                        name="name"
+                        required>
+
+                        <option value="">
+                            กำลังโหลดรายชื่อ...
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </main>
+
+            <main>
+
+                <button
+                    type="submit"
+                    id="submit-button">
+
+                    หย่อนบัตร
+
+                </button>
+
+            </main>
+
+            <main>
+
+                <div
+                    id="message"
+                    style="
+                        display:none;
+                        width:100%;
+                        padding:10px;
+                        border-radius:5px;
+                        text-align:center;
+                    ">
+                </div>
+
+            </main>
+
+        </div>
+
+    </form>
+    <div id="success-overlay" class="success-overlay" style="display:none;">
+        <div class="success-box">
+            <h1>🗳️</h1>
+            <h2>เลือกตั้งเสร็จสิ้น</h2>
+            <p>ระบบได้รับข้อมูลการออกเสียงประชามติของท่านเรียบร้อยแล้ว</p>
+        </div>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+
+</body>
+</html>
